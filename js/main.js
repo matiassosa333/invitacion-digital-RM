@@ -1,6 +1,7 @@
 import { supabase } from './supabase-client.js';
 import { inicializarRSVP, iniciarCountdownRSVP } from './rsvp.js';
 import { iniciarAnimacionPetalos } from './petals.js';
+import { activarScrollRevealGeneral } from './scroll-reveal.js';
 
 
 // 1. Leer el slug desde la URL (?id=familia-perez)
@@ -102,7 +103,8 @@ Cuenta: ${numeroCuenta.textContent}`;
 }
 // 4. Ejecutar todo al cargar la página
 document.addEventListener('DOMContentLoaded', async () => {
-  iniciarAnimacionPetalos();   // ← nueva línea, podés ponerla primero
+  iniciarAnimacionPetalos();
+  activarScrollRevealGeneral();
 
   const datosFamilia = await cargarInvitado();
   activarScrollReveal();

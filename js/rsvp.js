@@ -103,6 +103,16 @@ export function iniciarCountdownRSVP(fechaLimiteISO) {
   document.getElementById('fechaLimiteTexto').textContent =
     new Date(fechaLimiteISO).toLocaleDateString('es-PY', { day: 'numeric', month: 'long', year: 'numeric' });
 
+  function actualizarNumero(elementoId, valorNuevo) {
+    const el = document.getElementById(elementoId);
+    if (el.textContent !== valorNuevo) {
+      el.textContent = valorNuevo;
+      el.classList.remove('flip');
+      void el.offsetWidth; // fuerza el reinicio de la animación
+      el.classList.add('flip');
+    }
+  }
+
   function actualizar() {
     const ahora = new Date().getTime();
     const diferencia = fechaLimite - ahora;
@@ -117,9 +127,9 @@ export function iniciarCountdownRSVP(fechaLimiteISO) {
     const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
 
-    document.getElementById('rsvpDias').textContent = String(dias).padStart(2, '0');
-    document.getElementById('rsvpHoras').textContent = String(horas).padStart(2, '0');
-    document.getElementById('rsvpMinutos').textContent = String(minutos).padStart(2, '0');
+    actualizarNumero('rsvpDias', String(dias).padStart(2, '0'));
+    actualizarNumero('rsvpHoras', String(horas).padStart(2, '0'));
+    actualizarNumero('rsvpMinutos', String(minutos).padStart(2, '0'));
 
     // Urgencia visual en los últimos 15 días
     const countdownEl = document.getElementById('countdownRSVP');

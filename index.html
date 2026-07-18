@@ -24,15 +24,15 @@
   <section id="portada" class="seccion-portada">
     
     <p class="cita-biblica">
-      "Un cordon de tres dobleces no se rompe,<br>
-      facilmente."<br>
+      "Un cordón de tres dobleces no se rompe<br>
+      fácilmente."<br>
       <span class="cita-referencia">Ecl 4:12</span>
     </p>
 
     <div class="monograma">
-      <span class="monograma-letra">M</span>
-      <span class="monograma-separador">|</span>
-      <span class="monograma-letra">R</span>
+      <span class="monograma-letra monograma-item" style="--orden: 1;">M</span>
+      <span class="monograma-separador monograma-item" style="--orden: 2;">|</span>
+      <span class="monograma-letra monograma-item" style="--orden: 3;">R</span>
     </div>
 
     <p class="subtitulo-boda">Nuestra Boda</p>
@@ -55,14 +55,14 @@
 
     <div class="padres-grupo">
       <p class="padres-titulo">Padres del Novio</p>
-      <p class="padres-nombres">Mirta Vera<br>y<br>Victor Sosa</p>
+      <p class="padres-nombres">Mirta Vera<br>y<br>Víctor Sosa</p>
     </div>
 
     <p class="conector-y">y</p>
 
     <div class="padres-grupo">
       <p class="padres-titulo">Padres de la Novia</p>
-      <p class="padres-nombres">Luis Garcia<br>y<br>Zoila Vargas</p>
+      <p class="padres-nombres">Luis García<br>y<br>Zoila Vargas</p>
     </div>
 
     <p class="texto-nosotros">Nosotros</p>
@@ -89,7 +89,7 @@
     <!-- Flor para la línea de arriba -->
   </section>
   
-  <!--SECCION 5: Itinerario-->>
+  <!--SECCION 5: Itinerario-->
   <section id="foto-itinerario" class="seccion-itinerario">
     <div class="contenedor-itinerario">
       <img src="assets/images/itinerario.png" alt="Foto de Itinerario" class="foto-itinerario">
@@ -100,7 +100,7 @@
   <section id="ubicacion-iglesia" class="seccion-ubicacion">
     <h3 class="ubicacion-titulo">Ceremonia Religiosa</h3>
     <p class="ubicacion-nombre">Parroquia Virgen del Carmen</p>
-    <p class="ubicacion-direccion">Av. Americo Picco - Villa Elisa</p>
+    <p class="ubicacion-direccion">Av. Américo Picco - Villa Elisa</p>
 
 
     <a href="https://maps.app.goo.gl/55M8tXmdeCsC9bFn7"
@@ -136,12 +136,13 @@
     <p class="vestimenta-tipo">Formal Elegante</p>
 
     <p class="vestimenta-nota">
-      Para mantener la armonia de nuestra celebracion, les pedimos amablemente evitar los colores
+      Para mantener la armonía de nuestra celebración, les pedimos amablemente evitar los colores
     </p>
 
     <div class="paleta-swatches">
       <div class="swatch" style="background-color: var(--color-rojo);"></div>
       <div class="swatch" style="background-color: var(--color-azul-grisaceo);"></div>
+      <div class="swatch" style="background-color: var(--color-amarillo);"></div>
     </div>
 
     <p class="vestimenta-restriccion">
@@ -154,8 +155,7 @@
     <p class="invitado-previo">Con cariño, invitamos a</p>
 
     <h2 class="invitado-nombre-grupo" id="nombreGrupo">
-      <!-- Se llena dinámicamente vía JS -->
-      Cargando...
+      <span class="loader-petalo"></span>
     </h2>
 
     <p class="invitado-pases" id="pasesTexto">
@@ -168,10 +168,10 @@
     <div class="decoracion-flores-adultos"></div>
 
     <p class="adultos-texto">
-      Con mucho cariño, esta celebracion sera solo para adultos.
+      Con mucho cariño, esta celebración será solo para adultos.
     </p>
 
-    <p class="adultos-destacado">Gracias por la comprension</p>
+    <p class="adultos-destacado">Gracias por la comprensión</p>
   </section>
 
   <!-- SECCIÓN 11: Sugerencia de regalo -->
@@ -181,13 +181,13 @@
     <h3 class="regalo-titulo">Sugerencia de Regalo</h3>
 
     <p class="regalo-texto">
-      Su regalo sera de gran bendicion
+      Su regalo será de gran bendición para nosotros
     </p>
 
     <div class="regalo-datos">
       <p class="regalo-banco">Ueno Bank | Western Union</p>
-      <p class="regalo-titular">Ruth Garcia</p>
-      <p class="regalo-cuenta" id="numeroCuenta">Alias CI: 4.624.931</p>
+      <p class="regalo-titular">Ruth Andrea García Vargas</p>
+      <p class="regalo-cuenta" id="numeroCuenta">CI: 4.624.931</p>
 
       <button class="btn-copiar" id="btnCopiarCuenta">
         Copiar datos
@@ -201,7 +201,7 @@
     <h3 class="confirmacion-titulo">Confirma tu Asistencia</h3>
 
     <p class="confirmacion-fecha-limite">
-      Agradecemos confirmes antes del <span id="fechaLimiteTexto">--</span>
+      Te agradeceríamos que nos confirmaras tu asistencia antes del  <span id="fechaLimiteTexto">--</span>
     </p>
 
     <div class="countdown-rsvp" id="countdownRSVP">
@@ -266,6 +266,8 @@
   <script type="module" src="js/supabase-client.js"></script>
   <script type="module" src="js/rsvp.js"></script>
   <script type="module" src="js/petals.js"></script>
+  <script type="module" src="js/scroll-reveal.js"></script>
+  <script type="module" src="js/sobre.js"></script>
   <script type="module" src="js/main.js"></script>
 
 </body>
