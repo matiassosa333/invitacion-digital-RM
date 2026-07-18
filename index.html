@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathias & Ruth - Nuestra Boda</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap&family=MonteCarlo&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <!-- Contenedor de animación de pétalos, fijo sobre toda la página -->
+  <div class="petalos-contenedor" id="petalosContenedor"></div>
+  <div class="decoracion-flor decoracion-flor--superior"></div>
+  <!-- SECCIÓN 1: Cita bíblica + Monograma -->
+  <section id="portada" class="seccion-portada">
+    
+    <p class="cita-biblica">
+      "Un cordon de tres dobleces no se rompe,<br>
+      facilmente."<br>
+      <span class="cita-referencia">Ecl 4:12</span>
+    </p>
+
+    <div class="monograma">
+      <span class="monograma-letra">M</span>
+      <span class="monograma-separador">|</span>
+      <span class="monograma-letra">R</span>
+    </div>
+
+    <p class="subtitulo-boda">Nuestra Boda</p>
+  </section>
+
+  <!-- Acá van a ir las siguientes secciones (2, 3, 4...) a medida que las armemos -->
+  <!-- SECCIÓN 2: Foto de la pareja -->
+  <section id="foto-pareja" class="seccion-foto">
+    <div class="foto-contenedor">
+      <img src="assets/images/foto-pareja.png" alt="Mathias & Ruth" class="foto-pareja">
+    </div>
+  </section>
+
+
+  <!-- SECCIÓN 3: Mensaje de bendiciones -->
+  <section id="bendiciones" class="seccion-bendiciones">
+    <p class="texto-bendicion">
+      Con el amor de Dios y la bendición de nuestros padres
+    </p>
+
+    <div class="padres-grupo">
+      <p class="padres-titulo">Padres del Novio</p>
+      <p class="padres-nombres">Mirta Vera<br>y<br>Victor Sosa</p>
+    </div>
+
+    <p class="conector-y">y</p>
+
+    <div class="padres-grupo">
+      <p class="padres-titulo">Padres de la Novia</p>
+      <p class="padres-nombres">Luis Garcia<br>y<br>Zoila Vargas</p>
+    </div>
+
+    <p class="texto-nosotros">Nosotros</p>
+  </section>
+
+  <!-- SECCIÓN 4: Nombres + invitación + fecha -->
+  <section id="invitacion" class="seccion-invitacion">
+    <h1 class="nombres-novios">
+      Mathias <span class="ampersand">&amp;</span> Ruth
+    </h1>
+
+    <p class="texto-invitacion">
+      Tenemos el honor de invitarte a nuestra boda
+    </p>
+
+    <div class="fecha-boda">
+      <!-- Flor para la línea de arriba -->
+      <div class="flor-linea flor-linea--arriba"></div>
+      <span class="fecha-dia-semana">Viernes</span>
+      <span class="fecha-numero">23</span>
+      <span class="fecha-mes-anio">Octubre · 2026</span>
+      <div class="flor-linea flor-linea--abajo"></div>
+    </div>
+    <!-- Flor para la línea de arriba -->
+  </section>
+  
+  <!--SECCION 5: Itinerario-->>
+  <section id="foto-itinerario" class="seccion-itinerario">
+    <div class="contenedor-itinerario">
+      <img src="assets/images/itinerario.png" alt="Foto de Itinerario" class="foto-itinerario">
+    </div>
+  </section>
+
+  <!-- SECCIÓN 6: Ubicación de la parroquia -->
+  <section id="ubicacion-iglesia" class="seccion-ubicacion">
+    <h3 class="ubicacion-titulo">Ceremonia Religiosa</h3>
+    <p class="ubicacion-nombre">Parroquia Virgen del Carmen</p>
+    <p class="ubicacion-direccion">Av. Americo Picco - Villa Elisa</p>
+
+
+    <a href="https://maps.app.goo.gl/55M8tXmdeCsC9bFn7"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn-ubicacion"
+    >
+    Ver ubicación
+    </a>
+  </section>
+
+  <!-- SECCIÓN 7: Ubicación del local de eventos -->
+  <section id="ubicacion-local" class="seccion-ubicacion seccion-ubicacion--local">
+    <h3 class="ubicacion-titulo">Recepción</h3>
+    <p class="ubicacion-nombre">C.R. Eventos</p>
+    <p class="ubicacion-direccion">Av. Gral. Manuel Brítez Borges - Luque</p>
+
+
+    <a href="https://maps.app.goo.gl/7xjrehLdF8ZRonbL7"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn-ubicacion"
+    >
+    Ver ubicación
+    </a>
+  </section>
+
+  <!-- SECCIÓN 8: Código de vestimenta -->
+  <section id="vestimenta" class="seccion-vestimenta">
+    <div class="decoracion-flor decoracion-flor--vestimenta"></div>
+
+    <h3 class="vestimenta-titulo">Código de Vestimenta</h3>
+    <p class="vestimenta-tipo">Formal Elegante</p>
+
+    <p class="vestimenta-nota">
+      Para mantener la armonia de nuestra celebracion, les pedimos amablemente evitar los colores
+    </p>
+
+    <div class="paleta-swatches">
+      <div class="swatch" style="background-color: var(--color-rojo);"></div>
+      <div class="swatch" style="background-color: var(--color-azul-grisaceo);"></div>
+    </div>
+
+    <p class="vestimenta-restriccion">
+      Evitar el color blanco y azul marino, reservado para los novios
+    </p>
+  </section>
+
+  <!-- SECCIÓN 9: Nombre del invitado (dinámico) -->
+  <section id="invitado" class="seccion-invitado">
+    <p class="invitado-previo">Con cariño, invitamos a</p>
+
+    <h2 class="invitado-nombre-grupo" id="nombreGrupo">
+      <!-- Se llena dinámicamente vía JS -->
+      Cargando...
+    </h2>
+
+    <p class="invitado-pases" id="pasesTexto">
+      <!-- Se llena dinámicamente vía JS -->
+    </p>
+  </section>
+
+  <!-- SECCIÓN 10: Solo adultos -->
+  <section id="solo-adultos" class="seccion-solo-adultos">
+    <div class="decoracion-flores-adultos"></div>
+
+    <p class="adultos-texto">
+      Con mucho cariño, esta celebracion sera solo para adultos.
+    </p>
+
+    <p class="adultos-destacado">Gracias por la comprension</p>
+  </section>
+
+  <!-- SECCIÓN 11: Sugerencia de regalo -->
+  <section id="regalo" class="seccion-regalo">
+    <p class="regalo-icono">🎁</p>
+
+    <h3 class="regalo-titulo">Sugerencia de Regalo</h3>
+
+    <p class="regalo-texto">
+      Su regalo sera de gran bendicion
+    </p>
+
+    <div class="regalo-datos">
+      <p class="regalo-banco">Ueno Bank | Western Union</p>
+      <p class="regalo-titular">Ruth Garcia</p>
+      <p class="regalo-cuenta" id="numeroCuenta">Alias CI: 4.624.931</p>
+
+      <button class="btn-copiar" id="btnCopiarCuenta">
+        Copiar datos
+      </button>
+      <span class="copiar-confirmacion" id="copiarConfirmacion">¡Copiado!</span>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 12: Confirmación de asistencia -->
+  <section id="confirmacion" class="seccion-confirmacion">
+    <h3 class="confirmacion-titulo">Confirma tu Asistencia</h3>
+
+    <p class="confirmacion-fecha-limite">
+      Agradecemos confirmes antes del <span id="fechaLimiteTexto">--</span>
+    </p>
+
+    <div class="countdown-rsvp" id="countdownRSVP">
+      <div class="countdown-item">
+        <span class="countdown-numero" id="rsvpDias">00</span>
+        <span class="countdown-label">Días</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-numero" id="rsvpHoras">00</span>
+        <span class="countdown-label">Horas</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-numero" id="rsvpMinutos">00</span>
+        <span class="countdown-label">Min</span>
+      </div>
+    </div>
+
+    <!-- Formulario RSVP -->
+    <div class="rsvp-form" id="rsvpForm">
+      <p class="rsvp-pregunta">¿Nos acompañarás?</p>
+
+      <div class="rsvp-botones">
+        <button type="button" class="btn-rsvp btn-rsvp--si" id="btnConfirmarSi">
+          Sí, asistiré
+        </button>
+        <button type="button" class="btn-rsvp btn-rsvp--no" id="btnConfirmarNo">
+          No podré asistir
+        </button>
+      </div>
+
+      <!-- Se muestra solo si elige "Sí" -->
+      <div class="rsvp-detalles" id="rsvpDetalles" style="display: none;">
+        <label class="rsvp-label" for="pasesConfirmados">
+          ¿Cuántos de los pases asignados asistirán?
+        </label>
+        <select id="pasesConfirmados" class="rsvp-select"></select>
+
+        <label class="rsvp-label" for="mensajeNovios">
+          Déjanos un mensaje (opcional)
+        </label>
+        <textarea id="mensajeNovios" class="rsvp-textarea" rows="3"
+          placeholder="¡Los esperamos con muchas ganas!"></textarea>
+
+        <button type="button" class="btn-rsvp-enviar" id="btnEnviarRSVP">
+          Enviar confirmación
+        </button>
+      </div>
+    </div>
+
+    <!-- Mensaje de agradecimiento post-confirmación -->
+    <div class="rsvp-gracias" id="rsvpGracias" style="display: none;">
+      <p class="rsvp-gracias-texto">¡Gracias por confirmar!</p>
+      <p class="rsvp-gracias-sub">Te esperamos con mucha alegría 💛</p>
+    </div>
+  </section>
+  <section id="foto-pie" class="seccion-pie">
+    <div class="pie-contenedor">
+      <img src="assets/images/fotopie.jpg" alt="foto final" class="foto-pareja-pie">
+    </div>
+  </section>
+
+  <script type="module" src="js/supabase-client.js"></script>
+  <script type="module" src="js/rsvp.js"></script>
+  <script type="module" src="js/petals.js"></script>
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

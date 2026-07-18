@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin - Boda Ruth & Mathias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- Pantalla de acceso con contraseña -->
+  <div class="login-contenedor" id="loginContenedor">
+    <div class="login-card">
+      <h2>Panel de Confirmaciones</h2>
+      <input type="password" id="passwordInput" placeholder="Contraseña" class="login-input">
+      <button id="btnLogin" class="login-btn">Ingresar</button>
+      <p class="login-error" id="loginError"></p>
+    </div>
+  </div>
+
+  <!-- Panel principal (oculto hasta login correcto) -->
+  <div class="panel-contenedor" id="panelContenedor" style="display: none;">
+    <header class="panel-header">
+      <h1>Confirmaciones - Ruth & Mathias</h1>
+      <button id="btnActualizar" class="btn-actualizar">Actualizar</button>
+    </header>
+
+    <!-- Resumen de estadísticas -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-numero" id="statTotalFamilias">0</span>
+        <span class="stat-label">Familias/Grupos</span>
+      </div>
+      <div class="stat-card stat-card--confirmado">
+        <span class="stat-numero" id="statConfirmados">0</span>
+        <span class="stat-label">Confirmados</span>
+      </div>
+      <div class="stat-card stat-card--pendiente">
+        <span class="stat-numero" id="statPendientes">0</span>
+        <span class="stat-label">Pendientes</span>
+      </div>
+      <div class="stat-card stat-card--rechazado">
+        <span class="stat-numero" id="statRechazados">0</span>
+        <span class="stat-label">No asisten</span>
+      </div>
+      <div class="stat-card stat-card--pases">
+        <span class="stat-numero" id="statPasesTotal">0</span>
+        <span class="stat-label">Pases confirmados</span>
+      </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filtros">
+      <button class="filtro-btn activo" data-filtro="todos">Todos</button>
+      <button class="filtro-btn" data-filtro="confirmado">Confirmados</button>
+      <button class="filtro-btn" data-filtro="pendiente">Pendientes</button>
+      <button class="filtro-btn" data-filtro="rechazado">No asisten</button>
+      <input type="text" id="buscador" class="buscador" placeholder="Buscar por nombre...">
+    </div>
+
+    <!-- Tabla de invitados -->
+    <div class="tabla-contenedor">
+      <table class="tabla-invitados">
+        <thead>
+          <tr>
+            <th>Grupo</th>
+            <th>Nombres</th>
+            <th>Pases</th>
+            <th>Confirmados</th>
+            <th>Estado</th>
+            <th>Mensaje</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody id="tablaBody">
+          <!-- Se llena dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="module" src="../js/supabase-client.js"></script>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
