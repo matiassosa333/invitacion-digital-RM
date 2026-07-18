@@ -1046,9 +1046,6 @@ h1, h2, h3 {
   padding: 0;
   display: flex;
   justify-content: center;
-  margin-left: -24px;
-  margin-right: -24px;
-  width: calc(100% + 48px);
 }
 
 .pie-contenedor {
