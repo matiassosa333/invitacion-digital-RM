@@ -1,6 +1,6 @@
 import { supabase } from './supabase-client.js';
 
-const NUMERO_WHATSAPP_PLANNER = '595981234567'; // <-- reemplazar con el número real, formato internacional sin +
+const NUMERO_WHATSAPP_PLANNER = '595991238882'; // <-- reemplazar con el número real, formato internacional sin +
 
 let familiaActual = null;
 let asistenciaElegida = null; // true = sí, false = no
@@ -73,9 +73,14 @@ async function enviarConfirmacion(pasesConfirmados, mensaje) {
 function abrirWhatsAppPlanner(estado, pasesConfirmados, mensaje) {
   const nombres = familiaActual.nombres_invitados?.join(', ') || familiaActual.nombre_grupo;
 
+  const fraseInicial = estado === 'confirmado'
+    ? 'Hola, quiero confirmar mi asistencia a la boda de Ruth y Mathias'
+    : 'Hola, quiero avisar que no podré asistir a la boda de Ruth y Mathias';
+
   const textoEstado = estado === 'confirmado' ? '✅ CONFIRMÓ asistencia' : '❌ NO podrá asistir';
 
-  let texto = `${textoEstado}\n`;
+  let texto = `${fraseInicial}\n\n`;
+  texto += `${textoEstado}\n`;
   texto += `Grupo: ${familiaActual.nombre_grupo}\n`;
   texto += `Nombres: ${nombres}\n`;
   texto += `Pases asignados: ${familiaActual.pases_asignados}\n`;

@@ -1,4 +1,4 @@
-const COLORES_PETALOS = ['#F2C9CB', '#EFA8B0', '#F5D76E', '#AEC6E8'];
+const COLORES_PETALOS = ['#709282', '#EFA8B0', '#F5D76E', '#AEC6E8'];
 const CANTIDAD_PETALOS = 14;
 
 export function iniciarAnimacionPetalos() {
