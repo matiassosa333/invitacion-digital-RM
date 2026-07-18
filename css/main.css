@@ -163,9 +163,7 @@ h1, h2, h3 {
   padding: 0;
   display: flex;
   justify-content: center;
-  margin-left: -24px;
-  margin-right: -24px;
-  width: calc(100% + 48px);
+  
 }
 .foto-contenedor {
   width: 100%;
@@ -326,9 +324,6 @@ h1, h2, h3 {
   padding: 0;
   display: flex;
   justify-content: center;
-  margin-left: -24px;
-  margin-right: -24px;
-  width: calc(100% + 48px);
 }
 .contenedor-itinerario {
   width: 100%;
@@ -430,6 +425,7 @@ h1, h2, h3 {
   top: -10px;
   right: 10px;
   opacity: 0.8;
+  z-index: -1;
 }
 
 .vestimenta-titulo {
