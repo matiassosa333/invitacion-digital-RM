@@ -1,7 +1,7 @@
 import { supabase } from '../js/supabase-client.js';
 
 // ⚠️ Contraseña simple compartida — cambiala por una propia
-const PASSWORD_ADMIN = 'RyM2026boda';
+const PASSWORD_ADMIN = 'WeddingRM';
 
 let todosLosDatos = [];
 let filtroActivo = 'todos';
