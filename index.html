@@ -19,16 +19,25 @@
 <body>
   <!-- Contenedor de animación de pétalos, fijo sobre toda la página -->
   <div class="petalos-contenedor" id="petalosContenedor"></div>
-  <div class="decoracion-flor decoracion-flor--superior"></div>
-  <!-- SECCIÓN 1: Cita bíblica + Monograma -->
-  <section id="portada" class="seccion-portada">
-    
-    <p class="cita-biblica">
-      "Un cordón de tres dobleces no se rompe<br>
-      fácilmente."<br>
-      <span class="cita-referencia">Ecl 4:12</span>
-    </p>
 
+  <!-- SECCIÓN 1: El Hero / Portada (De borde a borde de la pantalla) -->
+  <section id="Hero-contenedor" class="decoracion-flor">
+    <div class="contenedor-imagen">
+      <img src="assets/images/rosa-esquina-1.png" alt="fondo portada">
+
+      <!-- Cita Biblica-->
+      <div class="texto-encima">
+        <p class="cita-biblica">
+          "Un cordón de tres dobleces no se rompe<br>
+          fácilmente."<br>
+          <span class="cita-referencia">Ecl 4:12</span>
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <section id="portada" class="seccion-portada">
+    <!-- SECCIÓN 1: Monograma -->
     <div class="monograma">
       <span class="monograma-letra monograma-item" style="--orden: 1;">M</span>
       <span class="monograma-separador monograma-item" style="--orden: 2;">|</span>
@@ -38,7 +47,6 @@
     <p class="subtitulo-boda">Nuestra Boda</p>
   </section>
 
-  <!-- Acá van a ir las siguientes secciones (2, 3, 4...) a medida que las armemos -->
   <!-- SECCIÓN 2: Foto de la pareja -->
   <section id="foto-pareja" class="seccion-foto">
     <div class="foto-contenedor">
@@ -198,65 +206,84 @@
 
   <!-- SECCIÓN 12: Confirmación de asistencia -->
   <section id="confirmacion" class="seccion-confirmacion">
-    <h3 class="confirmacion-titulo">Confirma tu Asistencia</h3>
-
-    <p class="confirmacion-fecha-limite">
-      Te agradeceríamos que nos confirmaras tu asistencia antes del  <span id="fechaLimiteTexto">--</span>
-    </p>
-
-    <div class="countdown-rsvp" id="countdownRSVP">
-      <div class="countdown-item">
-        <span class="countdown-numero" id="rsvpDias">00</span>
-        <span class="countdown-label">Días</span>
+    <div class="confirmacion-card">
+ 
+      <span class="confirmacion-icono">💍</span>
+ 
+      <h3 class="confirmacion-titulo">Confirma tu Asistencia</h3>
+      <div class="confirmacion-divisor"></div>
+ 
+      <p class="confirmacion-fecha-limite">
+        Te agradeceríamos que nos confirmaras tu asistencia antes del
+        <span id="fechaLimiteTexto">--</span>
+      </p>
+ 
+      <div class="countdown-rsvp" id="countdownRSVP">
+        <div class="countdown-item">
+          <span class="countdown-numero" id="rsvpDias">00</span>
+          <span class="countdown-label">Días</span>
+        </div>
+        <span class="countdown-separador">:</span>
+        <div class="countdown-item">
+          <span class="countdown-numero" id="rsvpHoras">00</span>
+          <span class="countdown-label">Horas</span>
+        </div>
+        <span class="countdown-separador">:</span>
+        <div class="countdown-item">
+          <span class="countdown-numero" id="rsvpMinutos">00</span>
+          <span class="countdown-label">Min</span>
+        </div>
       </div>
-      <div class="countdown-item">
-        <span class="countdown-numero" id="rsvpHoras">00</span>
-        <span class="countdown-label">Horas</span>
+ 
+      <div class="confirmacion-separador-floral">
+        <span></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M12 21C12 21 4 14.5 4 9C4 6 6.5 4 9 4C10.5 4 12 5 12 6C12 5 13.5 4 15 4C17.5 4 20 6 20 9C20 14.5 12 21 12 21Z" fill="#C97B85"/>
+        </svg>
+        <span></span>
       </div>
-      <div class="countdown-item">
-        <span class="countdown-numero" id="rsvpMinutos">00</span>
-        <span class="countdown-label">Min</span>
+ 
+      <!-- Formulario RSVP -->
+      <div class="rsvp-form" id="rsvpForm">
+        <p class="rsvp-pregunta">¿Nos acompañarás?</p>
+ 
+        <div class="rsvp-botones">
+          <button type="button" class="btn-rsvp btn-rsvp--si" id="btnConfirmarSi">
+            <span class="btn-rsvp-icono">✓</span> Sí, asistiré
+          </button>
+          <button type="button" class="btn-rsvp btn-rsvp--no" id="btnConfirmarNo">
+            No podré asistir
+          </button>
+        </div>
+ 
+        <!-- Se muestra solo si elige "Sí" -->
+        <div class="rsvp-detalles" id="rsvpDetalles" style="display: none;">
+          <label class="rsvp-label" for="pasesConfirmados">
+            ¿Cuántos de los pases asignados asistirán?
+          </label>
+          <select id="pasesConfirmados" class="rsvp-select"></select>
+ 
+          <label class="rsvp-label" for="mensajeNovios">
+            Déjanos un mensaje (opcional)
+          </label>
+          <textarea id="mensajeNovios" class="rsvp-textarea" rows="3"
+            placeholder="¡Los esperamos con muchas ganas!"></textarea>
+ 
+          <button type="button" class="btn-rsvp-enviar" id="btnEnviarRSVP">
+            Enviar confirmación
+          </button>
+        </div>
       </div>
-    </div>
-
-    <!-- Formulario RSVP -->
-    <div class="rsvp-form" id="rsvpForm">
-      <p class="rsvp-pregunta">¿Nos acompañarás?</p>
-
-      <div class="rsvp-botones">
-        <button type="button" class="btn-rsvp btn-rsvp--si" id="btnConfirmarSi">
-          Sí, asistiré
-        </button>
-        <button type="button" class="btn-rsvp btn-rsvp--no" id="btnConfirmarNo">
-          No podré asistir
-        </button>
+ 
+      <!-- Mensaje de agradecimiento post-confirmación -->
+      <div class="rsvp-gracias" id="rsvpGracias" style="display: none;">
+        <span class="rsvp-gracias-icono">🤍</span>
+        <p class="rsvp-gracias-texto">¡Gracias por confirmar!</p>
+        <p class="rsvp-gracias-sub">Te esperamos con mucha alegría</p>
       </div>
+    </section>
 
-      <!-- Se muestra solo si elige "Sí" -->
-      <div class="rsvp-detalles" id="rsvpDetalles" style="display: none;">
-        <label class="rsvp-label" for="pasesConfirmados">
-          ¿Cuántos de los pases asignados asistirán?
-        </label>
-        <select id="pasesConfirmados" class="rsvp-select"></select>
-
-        <label class="rsvp-label" for="mensajeNovios">
-          Déjanos un mensaje (opcional)
-        </label>
-        <textarea id="mensajeNovios" class="rsvp-textarea" rows="3"
-          placeholder="¡Los esperamos con muchas ganas!"></textarea>
-
-        <button type="button" class="btn-rsvp-enviar" id="btnEnviarRSVP">
-          Enviar confirmación
-        </button>
-      </div>
-    </div>
-
-    <!-- Mensaje de agradecimiento post-confirmación -->
-    <div class="rsvp-gracias" id="rsvpGracias" style="display: none;">
-      <p class="rsvp-gracias-texto">¡Gracias por confirmar!</p>
-      <p class="rsvp-gracias-sub">Te esperamos con mucha alegría 💛</p>
-    </div>
-  </section>
+  <!-- contenedor foto pie-->
   <section id="foto-pie" class="seccion-pie">
     <div class="pie-contenedor">
       <img src="assets/images/fotopie.jpg" alt="foto final" class="foto-pareja-pie">
