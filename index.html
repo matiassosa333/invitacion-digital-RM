@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap&family=MonteCarlo&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap&family=MonteCarlo&display=swap&family=Fleur+De+Leah&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="css/variables.css">
@@ -17,6 +17,13 @@
 </head>
 
 <body>
+  <!-- Pantalla de bienvenida / sobre -->
+  <div class="splash-sobre" id="splashSobre">
+    <p class="splash-nombres">Mathias <span class="splash-ampersand">&amp;</span> Ruth</p>
+    <img src="assets/images/carta-splash.png" alt="Sobre de invitación" class="splash-imagen">
+    <p class="splash-texto">Toca para abrir</p>
+  </div>
+
   <!-- Contenedor de animación de pétalos, fijo sobre toda la página -->
   <div class="petalos-contenedor" id="petalosContenedor"></div>
 
@@ -291,6 +298,7 @@
   </section>
 
   <script type="module" src="js/supabase-client.js"></script>
+  <script type="module" src="js/splash.js"></script>
   <script type="module" src="js/rsvp.js"></script>
   <script type="module" src="js/petals.js"></script>
   <script type="module" src="js/scroll-reveal.js"></script>
