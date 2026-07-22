@@ -46,6 +46,8 @@ export function inicializarRSVP(datosFamilia) {
   });
 }
 
+
+
 async function enviarConfirmacion(pasesConfirmados, mensaje) {
   const estado = asistenciaElegida ? 'confirmado' : 'rechazado';
 
@@ -65,7 +67,6 @@ async function enviarConfirmacion(pasesConfirmados, mensaje) {
   // Ocultar formulario, mostrar agradecimiento y agregar calendario
   document.getElementById('rsvpForm').style.display = 'none';
   document.getElementById('rsvpGracias').style.display = 'block';
-  document.getElementById('btnAgregarCalendario').addEventListener('click', generarArchivoICS);
 
 
   // Generar y abrir el link de WhatsApp hacia la planner
@@ -118,8 +119,8 @@ function generarArchivoICS() {
 
   const blob = new Blob([contenidoICS], { type: 'text/calendar;charset=utf-8' });
   const url = URL.createObjectURL(blob);
-
   const enlace = document.createElement('a');
+
   enlace.href = url;
   enlace.download = 'boda-ruth-mathias.ics';
   document.body.appendChild(enlace);
@@ -127,6 +128,14 @@ function generarArchivoICS() {
   document.body.removeChild(enlace);
   URL.revokeObjectURL(url);
 }
+  document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById("btnAgregarCalendario");
+  if (btn) {
+    btn.addEventListener("click", generarArchivoICS);
+  } else {
+    console.error("No se encontró el botón con ID 'btnAgregarCalendario'");
+}
+  })
 
 // === Countdown de la fecha límite de RSVP ===
 export function iniciarCountdownRSVP(fechaLimiteISO) {
