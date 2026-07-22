@@ -62,9 +62,13 @@ async function enviarConfirmacion(pasesConfirmados, mensaje) {
     return;
   }
 
-  // Ocultar formulario, mostrar agradecimiento
+  // Ocultar formulario, mostrar agradecimiento y agregar calendario
   document.getElementById('rsvpForm').style.display = 'none';
   document.getElementById('rsvpGracias').style.display = 'block';
+  if (estado === 'confirmado') {
+    document.getElementById('btnAgregarCalendario').addEventListener('click', generarArchivoICS);
+  }
+
 
   // Generar y abrir el link de WhatsApp hacia la planner
   abrirWhatsAppPlanner(estado, pasesConfirmados, mensaje);
@@ -94,6 +98,36 @@ function abrirWhatsAppPlanner(estado, pasesConfirmados, mensaje) {
 
   const url = `https://wa.me/${NUMERO_WHATSAPP_PLANNER}?text=${encodeURIComponent(texto)}`;
   window.open(url, '_blank');
+}
+
+// === Agregar al calendario ===
+function generarArchivoICS() {
+  const fechaInicio = '20261023T200000Z'; // 23 oct 2026, 17:00 PY = 20:00 UTC
+  const fechaFin = '20261024T040000Z';     // 24 oct 2026, 01:00 PY = 04:00 UTC
+
+  const contenidoICS = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'BEGIN:VEVENT',
+    `DTSTART:${fechaInicio}`,
+    `DTEND:${fechaFin}`,
+    'SUMMARY:Boda de Ruth y Mathias',
+    'DESCRIPTION:¡Los esperamos con mucho cariño para celebrar juntos!',
+    'LOCATION:Parroquia Virgen del Carmen, Av. Américo Picco - Villa Elisa',
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+
+  const blob = new Blob([contenidoICS], { type: 'text/calendar;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+
+  const enlace = document.createElement('a');
+  enlace.href = url;
+  enlace.download = 'boda-ruth-mathias.ics';
+  document.body.appendChild(enlace);
+  enlace.click();
+  document.body.removeChild(enlace);
+  URL.revokeObjectURL(url);
 }
 
 // === Countdown de la fecha límite de RSVP ===
