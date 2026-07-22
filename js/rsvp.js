@@ -65,9 +65,7 @@ async function enviarConfirmacion(pasesConfirmados, mensaje) {
   // Ocultar formulario, mostrar agradecimiento y agregar calendario
   document.getElementById('rsvpForm').style.display = 'none';
   document.getElementById('rsvpGracias').style.display = 'block';
-  if (estado === 'confirmado') {
-    document.getElementById('btnAgregarCalendario').addEventListener('click', generarArchivoICS);
-  }
+  document.getElementById('btnAgregarCalendario').addEventListener('click', generarArchivoICS);
 
 
   // Generar y abrir el link de WhatsApp hacia la planner
