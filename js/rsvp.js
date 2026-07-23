@@ -9,15 +9,19 @@ export function inicializarRSVP(datosFamilia) {
   familiaActual = datosFamilia;
   if (!familiaActual) return;
 
-  // Llenar el <select> con opciones de 0 hasta pases_asignados
-  const select = document.getElementById('pasesConfirmados');
-  select.innerHTML = '';
-  for (let i = familiaActual.pases_asignados; i >= 1; i--) {
-    const opt = document.createElement('option');
-    opt.value = i;
-    opt.textContent = `${i} de ${familiaActual.pases_asignados}`;
-    select.appendChild(opt);
-  }
+// Generar un checkbox por cada nombre real de la familia
+const checklistDiv = document.getElementById('checklistNombres');
+checklistDiv.innerHTML = '';
+familiaActual.nombres_invitados.forEach((nombre) => {
+  const label = document.createElement('label');
+  label.className = 'checklist-item';
+  label.innerHTML = `
+    <input type="checkbox" class="checklist-checkbox" value="${nombre}" checked>
+    <span>${nombre}</span>
+  `;
+  checklistDiv.appendChild(label);
+});
+
 
   const btnSi = document.getElementById('btnConfirmarSi');
   const btnNo = document.getElementById('btnConfirmarNo');
@@ -32,28 +36,37 @@ export function inicializarRSVP(datosFamilia) {
   });
 
   btnNo.addEventListener('click', () => {
-    asistenciaElegida = false;
-    btnNo.classList.add('activo');
-    btnSi.classList.remove('activo');
-    detalles.style.display = 'none';
-    enviarConfirmacion(0, ''); // si dice que no, se envía directo sin más pasos
-  });
+  asistenciaElegida = false;
+  btnNo.classList.add('activo');
+  btnSi.classList.remove('activo');
+  detalles.style.display = 'none';
+  enviarConfirmacion([], ''); // si dice que no, se envía directo con lista vacía
+});
+
 
   btnEnviar.addEventListener('click', () => {
-    const pasesConfirmados = parseInt(document.getElementById('pasesConfirmados').value, 10);
-    const mensaje = document.getElementById('mensajeNovios').value.trim();
-    enviarConfirmacion(pasesConfirmados, mensaje);
-  });
+  const nombresMarcados = [...document.querySelectorAll('.checklist-checkbox:checked')]
+    .map(cb => cb.value);
+  const mensaje = document.getElementById('mensajeNovios').value.trim();
+
+  if (nombresMarcados.length === 0) {
+    alert('Por favor marcá al menos una persona que asistirá, o elegí "No podré asistir".');
+    return;
+  }
+
+  enviarConfirmacion(nombresMarcados, mensaje);
+});
 }
 
 
 
-async function enviarConfirmacion(pasesConfirmados, mensaje) {
+async function enviarConfirmacion(nombresConfirmados, mensaje) {
   const estado = asistenciaElegida ? 'confirmado' : 'rechazado';
+  const listaFinal = asistenciaElegida ? nombresConfirmados : [];
 
   const { error } = await supabase.rpc('confirmar_asistencia', {
     p_slug: familiaActual.slug,
-    p_pases_confirmados: pasesConfirmados,
+    p_nombres_confirmados: listaFinal,
     p_mensaje: mensaje,
     p_estado: estado,
   });
@@ -64,17 +77,16 @@ async function enviarConfirmacion(pasesConfirmados, mensaje) {
     return;
   }
 
-  // Ocultar formulario, mostrar agradecimiento y agregar calendario
+  // Ocultar formulario, mostrar agradecimiento
   document.getElementById('rsvpForm').style.display = 'none';
   document.getElementById('rsvpGracias').style.display = 'block';
 
-
   // Generar y abrir el link de WhatsApp hacia la planner
-  abrirWhatsAppPlanner(estado, pasesConfirmados, mensaje);
+  abrirWhatsAppPlanner(estado, listaFinal, mensaje);
 }
 
-function abrirWhatsAppPlanner(estado, pasesConfirmados, mensaje) {
-  const nombres = familiaActual.nombres_invitados?.join(', ') || familiaActual.nombre_grupo;
+function abrirWhatsAppPlanner(estado, nombresConfirmados, mensaje) {
+  const nombresInvitados = familiaActual.nombres_invitados?.join(', ') || familiaActual.nombre_grupo;
 
   const fraseInicial = estado === 'confirmado'
     ? 'Hola, quiero confirmar mi asistencia a la boda de Ruth y Mathias'
@@ -85,11 +97,10 @@ function abrirWhatsAppPlanner(estado, pasesConfirmados, mensaje) {
   let texto = `${fraseInicial}\n\n`;
   texto += `${textoEstado}\n`;
   texto += `Grupo: ${familiaActual.nombre_grupo}\n`;
-  texto += `Nombres: ${nombres}\n`;
   texto += `Pases asignados: ${familiaActual.pases_asignados}\n`;
 
   if (estado === 'confirmado') {
-    texto += `Pases confirmados: ${pasesConfirmados}\n`;
+    texto += `Asisten (${nombresConfirmados.length}): ${nombresConfirmados.join(', ')}\n`;
   }
   if (mensaje) {
     texto += `Mensaje: "${mensaje}"\n`;

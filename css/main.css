@@ -983,7 +983,42 @@ h1, h2, h3 {
   text-align: left;
 }
  
-.rsvp-select,
+/* === Checklist de nombres en RSVP === */
+.rsvp-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background-color: #fff;
+  border: 1px solid var(--color-rosa);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  font-family: var(--font-sans);
+  font-size: var(--fs-texto);
+  color: var(--color-texto);
+}
+
+.checklist-item:has(.checklist-checkbox:checked) {
+  background-color: var(--color-amarillo-palido);
+  border-color: var(--color-rosa-oscuro);
+}
+
+.checklist-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-rosa-oscuro);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
 .rsvp-textarea {
   width: 100%;
   padding: 0.7rem;
@@ -996,7 +1031,6 @@ h1, h2, h3 {
   resize: none;
 }
  
-.rsvp-select:focus,
 .rsvp-textarea:focus {
   outline: none;
   border-color: var(--color-rosa-oscuro);

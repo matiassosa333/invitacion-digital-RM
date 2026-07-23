@@ -75,7 +75,12 @@ function renderizarTabla(data) {
       <td>${f.nombre_grupo}</td>
       <td>${nombres}</td>
       <td>${f.pases_asignados}</td>
-      <td>${f.pases_confirmados ?? '-'}</td>
+      <td>
+        ${f.pases_confirmados ?? '-'}
+        ${f.nombres_confirmados && f.nombres_confirmados.length > 0
+          ? `<br><small style="color:#7A6B6D;">${f.nombres_confirmados.join(', ')}</small>`
+          : ''}
+      </td>
       <td><span class="badge ${badgeClase}">${f.estado}</span></td>
       <td>${f.mensaje || '-'}</td>
       <td><button class="link-copiar" data-link="${link}">Copiar link</button></td>
